@@ -12,6 +12,19 @@ interface Slide {
   updates?: string[];
 }
 
+interface Question {
+  id: number;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+}
+
+interface Quiz {
+  slideId: number;
+  questions: Question[];
+}
+
 const slides: Slide[] = [
   {
     id: 1,
@@ -173,9 +186,171 @@ const slides: Slide[] = [
   }
 ];
 
+const quizzes: Quiz[] = [
+  {
+    slideId: 2,
+    questions: [
+      {
+        id: 1,
+        question: 'Что является предметом экологического права?',
+        options: [
+          'Только отношения по охране окружающей среды',
+          'Отношения по охране окружающей среды, рациональному использованию природных ресурсов и обеспечению экологической безопасности',
+          'Только использование природных ресурсов',
+          'Отношения между государствами по охране природы'
+        ],
+        correctAnswer: 1,
+        explanation: 'Экологическое право регулирует весь комплекс отношений: охрану окружающей среды, рациональное использование природных ресурсов и обеспечение экологической безопасности.'
+      },
+      {
+        id: 2,
+        question: 'Какая основная цель экологического права?',
+        options: [
+          'Максимальная эксплуатация природных ресурсов',
+          'Достижение гармоничных отношений между обществом и природой',
+          'Запрет хозяйственной деятельности',
+          'Получение прибыли от природопользования'
+        ],
+        correctAnswer: 1,
+        explanation: 'Основная цель — достижение гармоничных отношений между обществом и природой, сохранение природных систем для нынешнего и будущих поколений.'
+      }
+    ]
+  },
+  {
+    slideId: 3,
+    questions: [
+      {
+        id: 1,
+        question: 'Когда была принята Конституция РФ?',
+        options: ['10.01.2002', '12.12.1993', '04.05.1999', '24.04.1995'],
+        correctAnswer: 1,
+        explanation: 'Конституция РФ была принята 12 декабря 1993 года на всенародном референдуме.'
+      },
+      {
+        id: 2,
+        question: 'Какой ФЗ является базовым законом в области охраны окружающей среды?',
+        options: [
+          'ФЗ-96 "Об охране атмосферного воздуха"',
+          'ФЗ-7 "Об охране окружающей среды"',
+          'ФЗ-174 "Об экологической экспертизе"',
+          'ФЗ-89 "Об отходах производства и потребления"'
+        ],
+        correctAnswer: 1,
+        explanation: 'ФЗ-7 "Об охране окружающей среды" от 10.01.2002 — базовый закон, определяющий правовые основы государственной политики в области охраны природы.'
+      }
+    ]
+  },
+  {
+    slideId: 4,
+    questions: [
+      {
+        id: 1,
+        question: 'Какая статья Конституции РФ закрепляет право на благоприятную окружающую среду?',
+        options: ['Статья 9', 'Статья 36', 'Статья 42', 'Статья 58'],
+        correctAnswer: 2,
+        explanation: 'Статья 42 Конституции РФ: каждый имеет право на благоприятную окружающую среду, достоверную информацию о её состоянии и на возмещение ущерба.'
+      },
+      {
+        id: 2,
+        question: 'Что устанавливает статья 58 Конституции РФ?',
+        options: [
+          'Право на природопользование',
+          'Обязанность сохранять природу и окружающую среду',
+          'Право собственности на природные ресурсы',
+          'Разграничение полномочий между РФ и субъектами'
+        ],
+        correctAnswer: 1,
+        explanation: 'Статья 58 Конституции РФ устанавливает обязанность каждого сохранять природу и окружающую среду, бережно относиться к природным богатствам.'
+      }
+    ]
+  },
+  {
+    slideId: 6,
+    questions: [
+      {
+        id: 1,
+        question: 'Что означает принцип "загрязнитель платит"?',
+        options: [
+          'Штраф за загрязнение окружающей среды',
+          'Обязательность возмещения вреда окружающей среде',
+          'Платность природопользования',
+          'Экологический налог'
+        ],
+        correctAnswer: 1,
+        explanation: 'Принцип "загрязнитель платит" означает обязательность возмещения вреда окружающей среде лицом, причинившим этот вред.'
+      },
+      {
+        id: 2,
+        question: 'Что такое презумпция экологической опасности?',
+        options: [
+          'Любая деятельность запрещена',
+          'Любая деятельность потенциально опасна, пока не доказано обратное',
+          'Деятельность разрешена без ограничений',
+          'Только промышленная деятельность опасна'
+        ],
+        correctAnswer: 1,
+        explanation: 'Презумпция экологической опасности означает, что любая планируемая хозяйственная деятельность считается потенциально опасной, пока не доказано обратное.'
+      }
+    ]
+  },
+  {
+    slideId: 8,
+    questions: [
+      {
+        id: 1,
+        question: 'Какое право закреплено в статье 42 Конституции РФ?',
+        options: [
+          'Право на природопользование',
+          'Право на благоприятную окружающую среду',
+          'Право на участие в экологических организациях',
+          'Право на экологическое образование'
+        ],
+        correctAnswer: 1,
+        explanation: 'Статья 42 закрепляет право на благоприятную окружающую среду — основное экологическое право граждан.'
+      },
+      {
+        id: 2,
+        question: 'Имеют ли граждане право на участие в общественной экологической экспертизе?',
+        options: [
+          'Нет, это право только государственных органов',
+          'Да, это право закреплено законом',
+          'Только через общественные организации',
+          'Только для специалистов-экологов'
+        ],
+        correctAnswer: 1,
+        explanation: 'Граждане имеют право на участие в проведении общественной экологической экспертизы как альтернативы государственной.'
+      }
+    ]
+  },
+  {
+    slideId: 9,
+    questions: [
+      {
+        id: 1,
+        question: 'Какая глава КоАП РФ содержит составы административных правонарушений в области охраны окружающей среды?',
+        options: ['Глава 6', 'Глава 7', 'Глава 8', 'Глава 9'],
+        correctAnswer: 2,
+        explanation: 'Глава 8 КоАП РФ содержит административные правонарушения в области охраны окружающей среды и природопользования.'
+      },
+      {
+        id: 2,
+        question: 'Какова исковая давность для возмещения вреда окружающей среде?',
+        options: ['3 года', '10 лет', '20 лет', 'Не ограничена'],
+        correctAnswer: 2,
+        explanation: 'Исковая давность для возмещения вреда окружающей среде составляет 20 лет, что позволяет привлечь к ответственности даже спустя значительное время.'
+      }
+    ]
+  }
+];
+
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [showExplanation, setShowExplanation] = useState(false);
+  const [quizResults, setQuizResults] = useState<{ [key: number]: number }>({});
 
   const progress = ((currentSlide + 1) / slides.length) * 100;
 
@@ -194,6 +369,47 @@ const Index = () => {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
     setMenuOpen(false);
+    setShowQuiz(false);
+    setCurrentQuestionIndex(0);
+    setSelectedAnswer(null);
+    setShowExplanation(false);
+  };
+
+  const currentQuiz = quizzes.find(q => q.slideId === slides[currentSlide].id);
+  const hasQuiz = currentQuiz !== undefined;
+
+  const handleStartQuiz = () => {
+    setShowQuiz(true);
+    setCurrentQuestionIndex(0);
+    setSelectedAnswer(null);
+    setShowExplanation(false);
+  };
+
+  const handleAnswerSelect = (answerIndex: number) => {
+    setSelectedAnswer(answerIndex);
+  };
+
+  const handleCheckAnswer = () => {
+    setShowExplanation(true);
+    if (currentQuiz && selectedAnswer === currentQuiz.questions[currentQuestionIndex].correctAnswer) {
+      setQuizResults(prev => ({
+        ...prev,
+        [slides[currentSlide].id]: (prev[slides[currentSlide].id] || 0) + 1
+      }));
+    }
+  };
+
+  const handleNextQuestion = () => {
+    if (currentQuiz && currentQuestionIndex < currentQuiz.questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setSelectedAnswer(null);
+      setShowExplanation(false);
+    } else {
+      setShowQuiz(false);
+      setCurrentQuestionIndex(0);
+      setSelectedAnswer(null);
+      setShowExplanation(false);
+    }
   };
 
   return (
@@ -324,6 +540,24 @@ const Index = () => {
                 </div>
               )}
 
+              {hasQuiz && !showQuiz && (
+                <div className="mt-8 p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border-2 border-primary/20">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Icon name="BookOpen" className="text-primary" size={32} />
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">Проверьте свои знания</h3>
+                        <p className="text-sm text-muted-foreground">Пройдите тест по материалу модуля</p>
+                      </div>
+                    </div>
+                    <Button onClick={handleStartQuiz} size="lg" className="gap-2">
+                      <Icon name="Play" size={20} />
+                      Начать тест
+                    </Button>
+                  </div>
+                </div>
+              )}
+
               <div className="mt-12 flex items-center justify-between gap-4">
                 <Button
                   onClick={prevSlide}
@@ -363,6 +597,112 @@ const Index = () => {
               </div>
             </div>
           </Card>
+
+          {showQuiz && currentQuiz && (
+            <Card className="mt-8 p-8 bg-white shadow-2xl animate-fade-in">
+              <div className="mb-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-2xl font-bold text-foreground">Тест по модулю</h3>
+                  <Button variant="ghost" size="icon" onClick={() => setShowQuiz(false)}>
+                    <Icon name="X" size={20} />
+                  </Button>
+                </div>
+                <Progress value={((currentQuestionIndex + 1) / currentQuiz.questions.length) * 100} className="h-2" />
+                <p className="text-sm text-muted-foreground mt-2">
+                  Вопрос {currentQuestionIndex + 1} из {currentQuiz.questions.length}
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <h4 className="text-xl font-semibold text-foreground">
+                  {currentQuiz.questions[currentQuestionIndex].question}
+                </h4>
+
+                <div className="space-y-3">
+                  {currentQuiz.questions[currentQuestionIndex].options.map((option, index) => {
+                    const isSelected = selectedAnswer === index;
+                    const isCorrect = index === currentQuiz.questions[currentQuestionIndex].correctAnswer;
+                    const showResult = showExplanation;
+
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => !showExplanation && handleAnswerSelect(index)}
+                        disabled={showExplanation}
+                        className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                          showResult
+                            ? isCorrect
+                              ? 'border-green-500 bg-green-50'
+                              : isSelected
+                              ? 'border-red-500 bg-red-50'
+                              : 'border-gray-200 bg-gray-50'
+                            : isSelected
+                            ? 'border-primary bg-primary/10'
+                            : 'border-gray-200 hover:border-primary/50 hover:bg-gray-50'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold ${
+                              showResult
+                                ? isCorrect
+                                  ? 'bg-green-500 text-white'
+                                  : isSelected
+                                  ? 'bg-red-500 text-white'
+                                  : 'bg-gray-300 text-gray-600'
+                                : isSelected
+                                ? 'bg-primary text-primary-foreground'
+                                : 'bg-gray-200 text-gray-600'
+                            }`}
+                          >
+                            {showResult && isCorrect ? (
+                              <Icon name="Check" size={16} />
+                            ) : showResult && isSelected ? (
+                              <Icon name="X" size={16} />
+                            ) : (
+                              String.fromCharCode(65 + index)
+                            )}
+                          </div>
+                          <span className="text-base">{option}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {showExplanation && (
+                  <div className="p-4 bg-blue-50 border-l-4 border-blue-500 rounded-lg animate-fade-in">
+                    <div className="flex items-start gap-2">
+                      <Icon name="Info" className="text-blue-500 flex-shrink-0 mt-0.5" size={20} />
+                      <div>
+                        <p className="font-semibold text-blue-900 mb-1">Пояснение:</p>
+                        <p className="text-blue-800">{currentQuiz.questions[currentQuestionIndex].explanation}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex justify-between items-center pt-4">
+                  {!showExplanation ? (
+                    <Button
+                      onClick={handleCheckAnswer}
+                      disabled={selectedAnswer === null}
+                      size="lg"
+                      className="ml-auto gap-2"
+                    >
+                      Проверить
+                      <Icon name="CheckCircle2" size={20} />
+                    </Button>
+                  ) : (
+                    <Button onClick={handleNextQuestion} size="lg" className="ml-auto gap-2">
+                      {currentQuestionIndex < currentQuiz.questions.length - 1 ? 'Следующий вопрос' : 'Завершить тест'}
+                      <Icon name="ArrowRight" size={20} />
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </Card>
+          )}
 
           {currentSlide === slides.length - 1 && (
             <Card className="mt-8 p-8 bg-primary text-primary-foreground animate-fade-in">
