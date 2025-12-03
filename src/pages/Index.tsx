@@ -9,6 +9,7 @@ interface Slide {
   title: string;
   content: string[];
   image: string;
+  updates?: string[];
 }
 
 const slides: Slide[] = [
@@ -80,6 +81,12 @@ const slides: Slide[] = [
       'ФЗ-174 "Об экологической экспертизе" (от 23.11.1995) — закрепляет обязательность проведения государственной экологической экспертизы для определённых видов деятельности',
       'ФЗ-33 "Об особо охраняемых природных территориях" (от 14.03.1995) — устанавливает категории ООПТ (заповедники, национальные парки, заказники)',
       'ФЗ-89 "Об отходах производства и потребления" (от 24.06.1998) — регулирует обращение с отходами всех классов опасности'
+    ],
+    updates: [
+      'ФЗ-7: последние изменения от 08.08.2024 — усилена ответственность за экологические правонарушения, введены новые требования к экологическому мониторингу',
+      'ФЗ-89: изменения от 24.06.2023 — введена расширенная ответственность производителей (РОП) для всех категорий товаров, новые нормативы утилизации',
+      'Водный кодекс: изменения от 04.08.2023 — ужесточены требования к сбросам сточных вод, расширены водоохранные зоны',
+      'Лесной кодекс: изменения от 19.12.2023 — усилен контроль за использованием лесов, новые правила лесовосстановления'
     ],
     image: 'https://cdn.poehali.dev/projects/f54f90fb-f631-4b4c-8d3c-81cb244567ef/files/b3252498-16e6-4289-8b3b-1ca75c32d5d5.jpg'
   },
@@ -290,6 +297,32 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
+
+              {slides[currentSlide].updates && slides[currentSlide].updates!.length > 0 && (
+                <div className="mt-8 p-6 bg-accent/10 rounded-lg border-l-4 border-accent">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Icon name="AlertCircle" className="text-accent" size={24} />
+                    <h3 className="text-xl font-semibold text-accent">
+                      Последние изменения в законодательстве
+                    </h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {slides[currentSlide].updates!.map((update, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-3 text-base text-foreground"
+                      >
+                        <Icon
+                          name="Calendar"
+                          className="text-accent flex-shrink-0 mt-0.5"
+                          size={18}
+                        />
+                        <span>{update}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="mt-12 flex items-center justify-between gap-4">
                 <Button
